@@ -1,4 +1,5 @@
 //This file contains some functions to create signals
+#include "signals.h"
 
 double uniform(double a, double b, long int *seed)
 //This function generates a random number between a and b
