@@ -76,3 +76,30 @@ int poisson(double lambda, long int *seed)
     x = i - 1;
     return x;
 }
+
+void sinwn(double a[], double f[], double ph[], int m, 
+double fs, double snr, long seed, double x[], int n)
+{
+    int i,k;
+    double z,pi,nsr;
+    pi = 4.0 * atan(1.0);
+    z = snr / 10.0;
+    z = pow(10.0,z);
+    z = 1.0/(2*z);
+    nsr = sqrt(z);
+
+    for(i=0;i<m;i++)
+    {
+        f[i] = 2.0 * pi * f[i] / fs;
+        ph[i] = ph[i] * pi / 180.0;
+    }
+    for(k=0;k<n;k++)
+    {
+        x[k] = 0.0;
+        for(i=0;i<m;i++)
+        {
+            x[k] = x[k] + a[i] * sin(f[i] * k + ph[i]);
+            x[k] = x[k] + nsr*gauss(0,1,&seed);
+        }
+    }
+}
