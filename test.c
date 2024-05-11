@@ -1,13 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "signals.h"
 
 
 int main()
 {
-    srand(time(NULL));//seed for random number generator
-    
+    srand(time(NULL)); // seed for random number generator
+
+    /*
     long int seed = rand();
     for (int i = 0; i < 10; i++)
     {
@@ -17,5 +18,23 @@ int main()
         }
         printf("\n");
     }
+    */
+    double a[] = {1.0, 2.0};
+    double f[] = {50.0, 60.0};
+    double ph[] = {0.0, 0.0};
+    int m = 2;
+    double fs = 1000.0;
+    double snr = 10.0;
+    long seed = 1;
+    double x[1000];
+    int n = 1000;
+    sinwn(a, f, ph, m, fs, snr, seed, x, n);
+    //write to file
+    FILE *file = fopen("testOutput.csv", "w");
+    for (int i = 0; i < n; i++)
+    {
+        fprintf(file, "%f\n", x[i]);
+    }
+    fclose(file);
     return 0;
 }

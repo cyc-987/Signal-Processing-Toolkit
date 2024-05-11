@@ -1,3 +1,6 @@
+all: run draw
+draw: test
+	python -u draw.py
 run: test
 	./test
 test: test.o signals.o
