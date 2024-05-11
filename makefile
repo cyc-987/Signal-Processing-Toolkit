@@ -1,3 +1,5 @@
+run: test
+	./test
 test: test.o signals.o
 	gcc -o test test.o signals.o
 test.o: test.c signals.h

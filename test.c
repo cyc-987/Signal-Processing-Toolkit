@@ -1,13 +1,21 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
 #include "signals.h"
+
 
 int main()
 {
-    double a,b;
-    a = 10;
-    b = 30;
-    long int seed = 13579;
-    double result = uniform(a,b,&seed);
-    printf("Random number between %lf and %lf is %lf\n",a,b,result);
+    srand(time(NULL));//seed for random number generator
+    
+    long int seed = rand();
+    for (int i = 0; i < 10; i++)
+    {
+        for(int j = 0; j < 5; j++)
+        {
+            printf("%10d ",poisson(7,&seed));
+        }
+        printf("\n");
+    }
     return 0;
 }
