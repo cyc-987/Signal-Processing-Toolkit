@@ -39,8 +39,9 @@ int poisson(double lambda, long int *seed);
 //seed: 随机数种子
 //x: 输出信号
 //n: 信号长度
+//noiseOption: 0表示不激活噪声，1表示激活噪声
 void sinwn(double a[], double f[], double ph[], int m, 
-double fs, double snr, long seed, double x[], int n);
+double fs, double snr, long seed, double x[], int n, int noiseOption);
 
 
 #endif

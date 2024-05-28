@@ -78,7 +78,7 @@ int poisson(double lambda, long int *seed)
 }
 
 void sinwn(double a[], double f[], double ph[], int m, 
-double fs, double snr, long seed, double x[], int n)
+double fs, double snr, long seed, double x[], int n, int noiseOption)
 {
     int i,k;
     double z,pi,nsr;
@@ -87,6 +87,8 @@ double fs, double snr, long seed, double x[], int n)
     z = pow(10.0,z);
     z = 1.0/(2*z);
     nsr = sqrt(z);
+    if(noiseOption == 0)
+        nsr = 0.0;
 
     for(i=0;i<m;i++)
     {
